@@ -1,12 +1,18 @@
 <template>
   <view class="container">
-    <!-- P1修复: wd-navbar 无 transparent 属性，移除 -->
-    <wd-navbar title="个人中心" fixed placeholder :bordered="false" safe-area-inset-top />
+    <!-- 自定义导航栏: 融入渐变头部，不使用原生导航栏 -->
+    <view class="custom-status-bar" :style="{ height: statusBarHeight + 'px' }"></view>
+    <view class="custom-nav-bar">
+      <text class="nav-title">我的</text>
+      <view class="nav-right" @click="goSettings">
+        <wd-icon name="setting" size="20px" color="rgba(255,255,255,0.9)" />
+      </view>
+    </view>
 
     <view class="profile-header">
       <view class="header-content">
         <view class="user-info-box">
-          <view class="avatar-wrap">
+          <view class="avatar-wrap" @click="goUserInfo">
             <wd-img 
               :width="72" 
               :height="72" 
@@ -81,13 +87,18 @@
  * D1修复: 业务逻辑已抽离至 composables/useProfile.ts
  * 此容器组件仅负责生命周期编排和 UI 绑定
  */
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useUserStore } from '../../stores/user'
 import { storeToRefs } from 'pinia'
 import { useProfile } from './composables/useProfile'
 
 const userStore = useUserStore()
 const { collectorId, userInfo } = storeToRefs(userStore)
+
+/** 获取状态栏高度，用于自定义导航栏适配 */
+const statusBarHeight = ref(20)
+const sysInfo = uni.getSystemInfoSync()
+statusBarHeight.value = sysInfo.statusBarHeight || 20
 
 const {
   stats,
@@ -117,11 +128,34 @@ onMounted(async () => {
   min-height: 100vh;
 }
 
+/* 自定义状态栏 + 导航栏，融入渐变头部 */
+.custom-status-bar {
+  background: linear-gradient(135deg, $primary-color 0%, #5c7cff 100%);
+}
+
+.custom-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 32rpx;
+  background: linear-gradient(135deg, $primary-color 0%, #5c7cff 100%);
+
+  .nav-title {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: $white;
+  }
+  .nav-right {
+    padding: 8rpx;
+  }
+}
+
 .profile-header {
   position: relative;
-  height: 440rpx;
+  height: 340rpx;
   background: linear-gradient(135deg, $primary-color 0%, #5c7cff 100%);
-  padding-top: 120rpx;
+  padding-top: 20rpx;
   overflow: hidden;
 
   .header-content {

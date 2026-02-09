@@ -1,6 +1,7 @@
 <template>
   <view class="container">
-    <wd-navbar title="企业库存" fixed placeholder :bordered="false" safe-area-inset-top />
+    <!-- 自定义导航栏: 融入白色背景 -->
+    <wd-navbar title="企业库存" fixed placeholder :bordered="false" safe-area-inset-top custom-class="inv-nav" />
     
     <view class="summary-section">
       <view class="total-card">

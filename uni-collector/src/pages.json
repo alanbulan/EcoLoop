@@ -16,13 +16,15 @@
 		{
 			"path": "pages/profile/profile",
 			"style": {
-				"navigationBarTitleText": "个人中心"
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/inventory/inventory",
 			"style": {
 				"navigationBarTitleText": "企业库存",
+				"navigationStyle": "custom",
 				"enablePullDownRefresh": true
 			}
 		},

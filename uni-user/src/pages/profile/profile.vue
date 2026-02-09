@@ -1,6 +1,14 @@
 <template>
   <view class="container">
-    <wd-navbar title="个人中心" fixed placeholder :bordered="false" safe-area-inset-top />
+    <!-- 自定义导航栏: 融入渐变头部 -->
+    <view class="custom-status-bar" :style="{ height: statusBarHeight + 'px' }"></view>
+    <view class="custom-nav-bar">
+      <text class="nav-title">我的</text>
+      <view class="nav-right" @click="goMessages">
+        <wd-icon name="bell" size="20px" color="rgba(255,255,255,0.9)" />
+        <view v-if="unreadCount > 0" class="nav-badge">{{ unreadCount > 99 ? '99+' : unreadCount }}</view>
+      </view>
+    </view>
 
     <view class="user-header">
       <view class="header-bg"></view>
@@ -72,7 +80,21 @@
  * 用户个人中心 — 容器组件
  * 业务逻辑已抽离至 composables/useProfile.ts
  */
+import { ref } from 'vue'
 import { useProfile } from './composables/useProfile'
+import { useMessages } from '../messages/composables/useMessages'
+
+/** 获取状态栏高度，用于自定义导航栏适配 */
+const statusBarHeight = ref(20)
+const sysInfo = uni.getSystemInfoSync()
+statusBarHeight.value = sysInfo.statusBarHeight || 20
+
+const { unreadCount, fetchUnreadCount } = useMessages()
+fetchUnreadCount()
+
+const goMessages = () => {
+  uni.navigateTo({ url: '/pages/messages/messages' })
+}
 
 const {
   profileConfig,
@@ -91,6 +113,44 @@ const {
 .container {
   background-color: $bg-color;
   min-height: 100vh;
+}
+
+/* 自定义状态栏 + 导航栏，融入渐变头部 */
+.custom-status-bar {
+  background: linear-gradient(135deg, $primary-color 0%, #06ad56 50%, #059b4c 100%);
+}
+
+.custom-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 32rpx;
+  background: linear-gradient(135deg, $primary-color 0%, #06ad56 50%, #059b4c 100%);
+
+  .nav-title {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: #fff;
+  }
+  .nav-right {
+    position: relative;
+    padding: 8rpx;
+    .nav-badge {
+      position: absolute;
+      top: -4rpx;
+      right: -12rpx;
+      min-width: 32rpx;
+      height: 32rpx;
+      line-height: 32rpx;
+      text-align: center;
+      font-size: 20rpx;
+      color: #fff;
+      background: $error-color;
+      border-radius: 16rpx;
+      padding: 0 8rpx;
+    }
+  }
 }
 
 /* D: 个人中心渐变头部 */
