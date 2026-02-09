@@ -79,9 +79,6 @@
 
     <wd-message-box />
     <wd-toast id="wd-toast" />
-
-    <!-- 自定义底部导航栏: 蓝色主题 -->
-    <CustomTabBar active="profile" />
   </view>
 </template>
 
