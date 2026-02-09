@@ -6,9 +6,13 @@ onLaunch(() => {
   console.log("App Launch");
   // M: 初始化路由守卫，拦截未登录回收员访问需要权限的页面
   setupRouteGuard();
+  // 隐藏原生 tabBar，使用自定义 wd-tabbar 替代（解决图标颜色与蓝色主题不匹配）
+  uni.hideTabBar({ animation: false });
 });
 onShow(() => {
   console.log("App Show");
+  // 每次 App 显示时确保原生 tabBar 隐藏（防止切换 tab 时闪现）
+  uni.hideTabBar({ animation: false });
 });
 onHide(() => {
   console.log("App Hide");
