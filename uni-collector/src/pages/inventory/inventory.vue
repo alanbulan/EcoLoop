@@ -94,8 +94,8 @@
 
     <wd-toast id="wd-toast" />
 
-    <!-- 自定义底部导航栏: 替代原生 tabBar，图标颜色跟随蓝色主题 -->
-    <CustomTabBar current="inventory" />
+    <!-- 自定义底部导航栏: 蓝色主题 -->
+    <CustomTabBar active="inventory" />
   </view>
 </template>
 
@@ -105,7 +105,6 @@
  * 业务逻辑已抽离至 composables/useInventory.ts
  */
 import { onMounted } from 'vue'
-import CustomTabBar from '../../components/CustomTabBar.vue'
 import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { useInventory } from './composables/useInventory'
 

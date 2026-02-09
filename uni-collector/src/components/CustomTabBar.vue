@@ -1,58 +1,68 @@
 <template>
-  <!-- 自定义底部导航栏: 使用 wd-tabbar 替代原生 tabBar，解决图标颜色不可控问题 -->
+  <!-- 自定义底部导航栏: 使用 wd-tabbar 替代原生 tabBar，解决图标颜色与主题不匹配问题 -->
   <wd-tabbar
-    v-model="active"
+    v-model="current"
     fixed
-    placeholder
     bordered
+    placeholder
     safe-area-inset-bottom
-    active-color="#3D5afe"
-    inactive-color="#999999"
+    :active-color="activeColor"
+    :inactive-color="inactiveColor"
     @change="handleChange"
   >
-    <wd-tabbar-item name="index" title="工作台" icon="home" />
-    <wd-tabbar-item name="inventory" title="库存" icon="goods" />
-    <wd-tabbar-item name="profile" title="我的" icon="user" />
+    <wd-tabbar-item
+      v-for="item in tabs"
+      :key="item.name"
+      :name="item.name"
+      :title="item.title"
+      :icon="item.icon"
+    />
   </wd-tabbar>
 </template>
 
 <script setup lang="ts">
 /**
- * 回收员端自定义底部导航栏
- * 使用 wd-tabbar 组件，图标颜色跟随主题色 #3D5afe
+ * 回收员端自定义 TabBar 组件
+ * 使用 wd-tabbar 实现，active-color 与蓝色主题 (#3D5afe) 一致
  * 替代原生 tabBar 的绿色 PNG 图标
  */
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
+
+interface TabItem {
+  name: string
+  title: string
+  icon: string
+  path: string
+}
 
 const props = defineProps<{
-  /** 当前激活的 tab 名称 */
-  current: string
+  /** 当前激活的 tab name */
+  active: string
 }>()
 
-const active = ref(props.current)
+/** 主题色: 回收员端蓝色 */
+const activeColor = '#3D5afe'
+const inactiveColor = '#999999'
 
-// 同步外部 current 变化
-watch(() => props.current, (val) => {
-  active.value = val
+/** Tab 配置 */
+const tabs: TabItem[] = [
+  { name: 'index', title: '工作台', icon: 'home', path: '/pages/index/index' },
+  { name: 'inventory', title: '库存', icon: 'goods', path: '/pages/inventory/inventory' },
+  { name: 'profile', title: '我的', icon: 'user', path: '/pages/profile/profile' },
+]
+
+const current = ref(props.active)
+
+/** 监听外部 active 变化 */
+watch(() => props.active, (val) => {
+  current.value = val
 })
-
-// 挂载时隐藏原生 tabBar（微信小程序必须通过 API 隐藏）
-onMounted(() => {
-  uni.hideTabBar({ animation: false })
-})
-
-/** tab 路由映射表 */
-const tabRoutes: Record<string, string> = {
-  index: '/pages/index/index',
-  inventory: '/pages/inventory/inventory',
-  profile: '/pages/profile/profile',
-}
 
 /** 切换 tab 时使用 switchTab 导航 */
 const handleChange = ({ value }: { value: string }) => {
-  const url = tabRoutes[value]
-  if (url) {
-    uni.switchTab({ url })
+  const target = tabs.find(t => t.name === value)
+  if (target) {
+    uni.switchTab({ url: target.path })
   }
 }
 </script>

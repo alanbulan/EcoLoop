@@ -102,9 +102,6 @@
     <wd-toast id="wd-toast" />
     <wd-message-box />
 
-    <!-- 自定义底部导航栏: 替代原生 tabBar，图标颜色跟随绿色主题 -->
-    <CustomTabBar current="orders" />
-
     <!-- Order Detail Popup -->
     <!-- 小程序兼容: 弹窗添加 lock-scroll 防止滚动穿透 -->
     <wd-popup v-model="showOrderDetail" position="center" round lock-scroll custom-style="width: 85%; max-height: 70vh;">
@@ -246,7 +243,6 @@
  */
 import { onMounted } from 'vue'
 import { useToast, useMessage } from 'wot-design-uni'
-import CustomTabBar from '../../components/CustomTabBar.vue'
 import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { useOrderList } from './composables/useOrderList'
 import { useOrderReview } from './composables/useOrderReview'
