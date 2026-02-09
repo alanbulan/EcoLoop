@@ -135,6 +135,9 @@
 
     <!-- Refined Toast -->
     <wd-toast id="wd-toast" />
+
+    <!-- 自定义底部导航栏: 替代原生 tabBar，图标颜色跟随绿色主题 -->
+    <CustomTabBar current="index" />
   </view>
 </template>
 
@@ -144,6 +147,7 @@
  * 此容器组件仅负责事件处理和 UI 绑定
  */
 import { ref } from 'vue'
+import CustomTabBar from '../../components/CustomTabBar.vue'
 import { type Material } from '../../api'
 import { useToast } from 'wot-design-uni'
 import { useHome } from './composables/useHome'

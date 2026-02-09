@@ -215,8 +215,8 @@
 
     <wd-toast id="wd-toast" />
 
-    <!-- 自定义底部导航栏: 蓝色主题 -->
-    <CustomTabBar active="index" />
+    <!-- 自定义底部导航栏: 替代原生 tabBar，图标颜色跟随蓝色主题 -->
+    <CustomTabBar current="index" />
   </view>
 </template>
 
@@ -226,6 +226,7 @@
  * 此容器组件仅负责事件编排和 UI 绑定
  */
 import { onMounted } from 'vue'
+import CustomTabBar from '../../components/CustomTabBar.vue'
 import { useToast } from 'wot-design-uni'
 import { useUserStore } from '../../stores/user'
 import { storeToRefs } from 'pinia'

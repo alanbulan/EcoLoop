@@ -1,25 +1,25 @@
 <template>
-  <!-- 自定义底部导航栏: 使用 wd-tabbar 替代原生 tabBar，解决图标颜色不可控问题 -->
+  <!-- 自定义底部导航栏: 使用 wd-tabbar 替代原生 tabBar，图标颜色跟随主题色 -->
   <wd-tabbar
     v-model="active"
     fixed
     placeholder
     bordered
     safe-area-inset-bottom
-    active-color="#3D5afe"
+    active-color="#07c160"
     inactive-color="#999999"
     @change="handleChange"
   >
-    <wd-tabbar-item name="index" title="工作台" icon="home" />
-    <wd-tabbar-item name="inventory" title="库存" icon="goods" />
+    <wd-tabbar-item name="index" title="首页" icon="home" />
+    <wd-tabbar-item name="orders" title="订单" icon="list" />
     <wd-tabbar-item name="profile" title="我的" icon="user" />
   </wd-tabbar>
 </template>
 
 <script setup lang="ts">
 /**
- * 回收员端自定义底部导航栏
- * 使用 wd-tabbar 组件，图标颜色跟随主题色 #3D5afe
+ * 用户端自定义底部导航栏
+ * 使用 wd-tabbar 组件，图标颜色跟随主题色 #07c160
  * 替代原生 tabBar 的绿色 PNG 图标
  */
 import { ref, watch, onMounted } from 'vue'
@@ -44,7 +44,7 @@ onMounted(() => {
 /** tab 路由映射表 */
 const tabRoutes: Record<string, string> = {
   index: '/pages/index/index',
-  inventory: '/pages/inventory/inventory',
+  orders: '/pages/orders/orders',
   profile: '/pages/profile/profile',
 }
 

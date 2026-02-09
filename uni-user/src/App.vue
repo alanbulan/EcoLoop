@@ -15,5 +15,15 @@ onHide(() => {
 });
 </script>
 <style lang="scss">
-/* Wot Design Uni components are styled individually via easycom */
+@use "./styles/variables.scss" as *;
+
+/* Global Wot Design Uni Theme Overrides */
+:root, page {
+  --wd-color-primary: #{$primary-color};
+}
+
+/* 隐藏原生 tabBar，使用自定义 wd-tabbar 替代 */
+uni-tabbar {
+  display: none !important;
+}
 </style>

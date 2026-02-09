@@ -72,6 +72,9 @@
 
     <wd-message-box />
     <wd-toast id="wd-toast" />
+
+    <!-- 自定义底部导航栏: 替代原生 tabBar，图标颜色跟随绿色主题 -->
+    <CustomTabBar current="profile" />
   </view>
 </template>
 
@@ -81,6 +84,7 @@
  * 业务逻辑已抽离至 composables/useProfile.ts
  */
 import { ref } from 'vue'
+import CustomTabBar from '../../components/CustomTabBar.vue'
 import { useProfile } from './composables/useProfile'
 import { useMessages } from '../messages/composables/useMessages'
 
