@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  /* Modernizing native elements */
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="email"],
+  select,
+  textarea {
+    @apply block w-full rounded-xl border-slate-200 bg-white px-4 py-2.5 text-sm shadow-sm transition-all duration-200;
+    @apply focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none;
+    @apply placeholder:text-slate-400 font-medium;
+  }
+
+  select {
+    @apply pr-10 appearance-none bg-no-repeat bg-white;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2310b981' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-size: 1.25rem 1.25rem;
+    background-position: right 0.75rem center;
+    cursor: pointer;
+    @apply text-slate-700;
+  }
+
+  select:hover {
+    @apply border-emerald-200 bg-emerald-50/10;
+  }
+
+  input:hover {
+    @apply border-slate-300;
+  }
+
+  button {
+    @apply transition-all duration-200 active:scale-95;
+  }
+
+  /* Leaflet Customizations */
+  .leaflet-popup-content-wrapper {
+    @apply !rounded-xl !shadow-xl !border !border-slate-100;
+  }
+  .leaflet-popup-tip {
+    @apply !shadow-none;
+  }
+  .leaflet-container {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-sm font-medium flex items-center gap-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-lg shadow-sm font-medium flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden;
+  }
+}

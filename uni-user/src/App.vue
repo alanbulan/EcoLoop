@@ -1,0 +1,19 @@
+<script setup lang="ts">
+import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
+import { setupRouteGuard } from "./composables/useHttpInterceptor";
+
+onLaunch(() => {
+  console.log("App Launch");
+  // M: 初始化路由守卫，拦截未登录用户访问需要权限的页面
+  setupRouteGuard();
+});
+onShow(() => {
+  console.log("App Show");
+});
+onHide(() => {
+  console.log("App Hide");
+});
+</script>
+<style lang="scss">
+/* Wot Design Uni components are styled individually via easycom */
+</style>

@@ -1,0 +1,80 @@
+# ===========================
+# 全局忽略规则 — Green Recycle 项目
+# ===========================
+
+# --- 操作系统 ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- IDE / 编辑器 ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+# --- AI 工具配置（本地个人配置，不追踪） ---
+.claude/
+.trae/
+.sanshu-memory/
+.kiro/
+
+# --- 通用日志 ---
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ===========================
+# Backend (Python / FastAPI)
+# ===========================
+backend/venv/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+backend/.env
+backend/db.sqlite3
+backend/db.sqlite3-shm
+backend/db.sqlite3-wal
+*.egg-info/
+.eggs/
+*.egg
+
+# --- Aerich 迁移文件（如需追踪可移除此行） ---
+# backend/migrations/
+
+# ===========================
+# Frontend — uni-user (Vue3 / UniApp)
+# ===========================
+uni-user/node_modules/
+uni-user/dist/
+uni-user/.env
+uni-user/*.local
+
+# ===========================
+# Frontend — uni-collector (Vue3 / UniApp)
+# ===========================
+uni-collector/node_modules/
+uni-collector/dist/
+uni-collector/.env
+uni-collector/*.local
+
+# ===========================
+# Frontend — green-recycle-admin (React)
+# ===========================
+green-recycle-admin/node_modules/
+green-recycle-admin/dist/
+green-recycle-admin/dist-ssr/
+green-recycle-admin/.env.local
+green-recycle-admin/*.local
+
+# ===========================
+# 杂项
+# ===========================
+# 生成的图片（非项目资源）
+Gemini_Generated_Image_*.png
