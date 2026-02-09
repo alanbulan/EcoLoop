@@ -5,7 +5,7 @@
     <scroll-view scroll-y class="content-scroll">
       <view class="article">
         <view class="section">
-          <text class="p">感谢您选择 Green Recycle。我们非常重视您的个人信息和隐私保护。在您使用我们的服务前，请认真阅读本协议。</text>
+          <text class="p">感谢您选择 EcoLoop。我们非常重视您的个人信息和隐私保护。在您使用我们的服务前，请认真阅读本协议。</text>
         </view>
 
         <view class="section">

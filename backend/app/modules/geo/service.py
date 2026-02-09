@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class GeoService:
     BASE_URL = "https://nominatim.openstreetmap.org"
-    USER_AGENT = "GreenRecycleApp/1.0"
+    USER_AGENT = "EcoLoopApp/1.0"
 
     @classmethod
     async def reverse_geocode(cls, lat: float, lon: float) -> Optional[str]:

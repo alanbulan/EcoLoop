@@ -1,4 +1,4 @@
-"""Green Recycle 后端入口 — 模块化架构"""
+"""EcoLoop 后端入口 — 模块化架构"""
 import logging
 import os
 from contextlib import asynccontextmanager
@@ -66,7 +66,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Green Recycle Backend",
+    title="EcoLoop Backend",
     lifespan=lifespan
 )
 
@@ -116,4 +116,4 @@ register_tortoise(
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Green Recycle API"}
+    return {"message": "Welcome to EcoLoop API"}

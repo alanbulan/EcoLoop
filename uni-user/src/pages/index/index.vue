@@ -2,7 +2,7 @@
   <view class="container">
     <!-- Custom Navbar -->
     <wd-navbar 
-      title="Green Recycle" 
+      title="EcoLoop" 
       fixed 
       placeholder 
       :bordered="false"

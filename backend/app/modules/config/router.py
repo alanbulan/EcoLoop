@@ -42,8 +42,8 @@ DEFAULT_CONFIGS = {
     },
     "about_page": {
         "version": "1.0.2",
-        "app_name": "Green Recycle",
-        "copyright": "Copyright © 2026 Green Recycle",
+        "app_name": "EcoLoop",
+        "copyright": "Copyright © 2026 EcoLoop",
         "links": [
             {"title": "功能介绍", "path": "/pages/about/intro"},
             {"title": "投诉建议", "path": "/pages/about/feedback"},

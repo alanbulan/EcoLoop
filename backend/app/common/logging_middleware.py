@@ -9,7 +9,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 
-logger = logging.getLogger("green_recycle.api")
+logger = logging.getLogger("ecoloop.api")
 
 
 class RequestLoggingMiddleware(BaseHTTPMiddleware):

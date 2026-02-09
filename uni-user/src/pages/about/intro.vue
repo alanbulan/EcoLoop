@@ -3,7 +3,7 @@
     <wd-navbar title="功能介绍" left-arrow fixed placeholder @click-left="goBack" safe-area-inset-top />
     
     <view class="intro-header">
-      <view class="title-main">Green Recycle</view>
+      <view class="title-main">EcoLoop</view>
       <view class="title-sub">让回收变得更简单、更环保</view>
     </view>
 

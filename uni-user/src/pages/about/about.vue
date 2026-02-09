@@ -5,7 +5,7 @@
     <view class="about-content">
       <view class="logo-box">
         <wd-img :width="80" :height="80" round src="/static/logo.png" />
-        <text class="app-name">{{ aboutConfig?.app_name || 'Green Recycle' }}</text>
+        <text class="app-name">{{ aboutConfig?.app_name || 'EcoLoop' }}</text>
         <text class="version">Version {{ aboutConfig?.version || '1.0.0' }}</text>
       </view>
 
@@ -22,7 +22,7 @@
       </view>
 
       <view class="footer">
-        <text>{{ aboutConfig?.copyright || 'Copyright © 2026 Green Recycle' }}</text>
+        <text>{{ aboutConfig?.copyright || 'Copyright © 2026 EcoLoop' }}</text>
         <text>All Rights Reserved</text>
       </view>
     </view>

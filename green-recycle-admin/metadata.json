@@ -1,5 +1,5 @@
 {
-  "name": "Green Recycle Admin",
-  "description": "A responsive admin dashboard for managing the Green Recycle ecosystem, featuring price management, order tracking, and financial withdrawals.",
+  "name": "EcoLoop Admin",
+  "description": "A responsive admin dashboard for managing the EcoLoop recycling ecosystem, featuring price management, order tracking, and financial withdrawals.",
   "requestFramePermissions": []
 }

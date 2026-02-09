@@ -6,7 +6,7 @@
         <view class="app-icon">
           <wd-icon name="goods" size="48px" color="#3D5afe" />
         </view>
-        <text class="app-name">Green Recycle</text>
+        <text class="app-name">EcoLoop</text>
         <text class="app-desc">回收员工作台</text>
         <text class="app-ver">v1.0.0</text>
       </view>
@@ -15,7 +15,7 @@
         <wd-cell title="隐私政策" is-link />
         <wd-cell title="检查更新" is-link @click="checkUpdate" />
       </wd-cell-group>
-      <view class="copyright">Copyright 2026 Green Recycle</view>
+      <view class="copyright">Copyright 2026 EcoLoop</view>
     </view>
     <wd-toast id="wd-toast" />
   </view>
